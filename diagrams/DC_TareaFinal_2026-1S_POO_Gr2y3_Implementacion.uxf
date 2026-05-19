@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=10
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>15</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>165</y>
+      <w>765</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;JFrame Class&gt;&gt;
+Package::Vista
+*+ UsaGUIVenta*
+--
+*datosVentas : ArrayList&lt;Venta&gt;*
+*datosClientes : ArrayList&lt;Cliente&gt;*
+
+--
+*+ UsaVenta()*
+*+ &lt;&lt;static&gt;&gt; main(args : String[ ]) : void*
++ generarNumeroVenta(datosVentas : ArrayList&lt;Venta&gt;) : int
++ crearNuevaVenta(datosVentas : ArrayList&lt;Venta&gt;) : ArrayList&lt;Venta&gt;
++ consultarTodasVentas(datosVentas : ArrayList&lt;Venta&gt;) : String
++ consultarVentaDadoNumero(datosVentas : ArrayList&lt;Venta&gt;, numeroVenta : int) : String
++ consultarVentaDadaPosicion(datosVentas : ArrayList&lt;Venta&gt;, posicionVenta: char) : String
++ consultarVentasDadoEstado(datosVentas : ArrayList&lt;Venta&gt;, estadoVenta: char) : String
++ consultarVentasDadaCategoriaPaquete(datosVentas : ArrayList&lt;Venta&gt;, categoriaPaquete: String) : String
++ generarArchivoObjetosVentas(datosVentas : ArrayList&lt;Venta&gt;) : void
++ recuperarVentasDesdeArchivoObjetos() : void
++ actualizarVenta(datosVentas : ArrayList&lt;Venta&gt;, numeroVenta : int, operacion: char) : void
++ generarArchivoObjetosClientes(datosClientes : ArrayList&lt;Cliente&gt;) : void
++ recuperarClientesDesdeArchivoObjetos() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>165</y>
+      <w>435</w>
+      <h>375</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Package::Modelo
+*+ Venta*
+--
+- numero : int
+- fechaHoraGeneracion : LocalDateTime
+- fechaHoraActualizacion : LocalDateTime
+*- suCliente : Cliente*
+*- susPaquetesTuristicos : ArrayList&lt;PaqueteTuristico&gt;*
+- estado : char
+
+--
++ Venta(&lt;&lt;parámetros&gt;&gt;)
+*+ &lt;&lt;Getter&gt;&gt;*
+*+ &lt;&lt;Setter&gt;&gt;*
+*+ &lt;&lt;toString&gt;&gt;*
++ calcularCantidadTotalUnidadesPaquetes() : int
++ calcularValorTotalPaquetes() : int
++ calcularValorDescuento() : int
++ calcularValorTotalPagar() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1500</x>
+      <y>315</y>
+      <w>480</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=blue
+m1=1
+suCliente
+</panel_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>270</y>
+      <w>360</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>570</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>bg=cyan
+*Proyecto: Gestionar_Ventas_PaquetesTuristicos*
+*Versión: 1.0 - 20260430*
+*Temas especiales: GUI, ArrayList y Arhivo de objetos*
+*Temas complementarios: Pruebas unitarias, depuración, versionamiento*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1950</x>
+      <y>300</y>
+      <w>330</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Package::Modelo
+*+ Cliente*
+--
+- tipoIdentificacion : char
+- numeroIdentificacion : String
+- empresa : boolean
+- nombre : String
+- email : String
+- telefono : String
+- nombreContacto : String
+- porcentajeDescuento : double
+
+--
++ Cliente (&lt;&lt;parámetros&gt;&gt;)
+*+ &lt;&lt;Getter&gt;&gt;*
+*+ &lt;&lt;Setter&gt;&gt;*
+*+ &lt;&lt;toString&gt;&gt;*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2490</x>
+      <y>75</y>
+      <w>570</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Package::Modelo
+*+ &lt;&lt;abstract&gt;&gt; PaqueteTuristico*
+--
+# codigo : String
+# nombre : String
+# tipologiaTurismo : String
+# descripcion : String
+# origen : String
+*# susDestinos : ArrayList&lt;Destino&gt;*
+# hotel : boolean
+# alimentacion : boolean
+# alimentacionTodo : boolean
+# vuelo : boolean
+# asistencia : boolean
+# tarifaDia : int
+# cantidadUnidades : int
+
+--
++ PaqueteTuristico (&lt;&lt;parámetros&gt;&gt;)
+*+ &lt;&lt;Getter&gt;&gt;*
+*+ &lt;&lt;Setter&gt;&gt;*
+*+ &lt;&lt;toString&gt;&gt;*
++ calcularDuracionTotalDias() : int
+*+ &lt;&lt;abstract&gt;&gt; calcularValorUnidad() : int*
++ calcularValorTotal() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1500</x>
+      <y>195</y>
+      <w>1020</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=blue
+m1=1..*
+susPaquetesTuristicos
+&lt;&lt;ArrayList&gt;&gt;
+</panel_attributes>
+    <additional_attributes>660.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>795</x>
+      <y>1365</y>
+      <w>585</w>
+      <h>690</h>
+    </coordinates>
+    <panel_attributes>*Clase: Venta*
+-
+*Atributo: fechaHoraGeneracion*
+Formato fecha (aaaa-dd-mm hh:mm:ss)
+Tomada del sistema
+
+-
+*Atributo: fechaHoraActualizacion*
+Formato fecha (aaaa-dd-mm hh:mm:ss)
+Al momento de la creación, se toma la misma fecha y hora
+de generación de la venta
+Se actualiza cuando se realizan cambios al estado de la
+venta (pago o cancelación)
+
+-
+*Atributo: estado*
+Dominio: {A, P, C}
+   A: valor por defecto al momento de crear la venta; 
+   P: si se genera una pago
+   C: si se cancela/anula la venta
+
+-
+*Método: calcularCantidadTotalUnidadesPaquetes*
+Resultado = sumatoria de las unidades de los paquetes
+incluidos
+
+-
+*Método: calcularValorTotalPaquetes*
+Resultado = sumatoria del valor total de cada uno de los
+paquetes incluidos
+
+-
+*Método: calcularValorDescuento*
+Resultado = producto del valor total de los paquetes y
+el porcentaje de descuento del cliente
+
+-
+*Método: calcularValorTotalPagar*
+Resultado = valor total de los paquetes incluidos menos
+el descuento</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3315</x>
+      <y>105</y>
+      <w>285</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Package::Modelo
+*+ Destino*
+--
+- nombreLugar : String
+- diasPermanencia : int
+*- atractivos : LinkedList&lt;String&gt;*
+- atractivosIncluidos : boolean
+
+--
++ Destino (&lt;&lt;parámetros&gt;&gt;)
+*+ &lt;&lt;Getter&gt;&gt;*
+*+ &lt;&lt;Setter&gt;&gt;*
+*+ &lt;&lt;toString&gt;&gt;*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>3045</x>
+      <y>195</y>
+      <w>300</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=blue
+m1=1..*
+susDestinos
+&lt;&lt;ArrayList&gt;&gt;
+</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1440</x>
+      <y>675</y>
+      <w>585</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>*Clase: PaqueteTuristico*
+-
+*Atributo: nombre*
+mínimo 10 caracteres
+
+-
+*Atributo: origen*
+nombre lugar de partida, ej. Bogotá D.C.
+
+-
+*Atributo: descripción*
+máximo 500 caracteres
+
+-
+*Atributo: hotel*
+Si incluye hotel o no, por defecto está incluido.
+
+-
+*Atributo: alimentación*
+Si incluye alimentación o no, por defecto está incluido.
+
+-
+*Atributo: alimentacionTodo*
+Si la alimentación incluye todo o únicamente el desayuno
+
+-
+*Atributo: vuelo*
+Si incluye vuelo o no, por defecto está incluido.
+
+-
+*Atributo: asistencia*
+Si incluye asistencia o no, por defecto no está incluida)
+
+-
+*Método: calcularDuracionTotalDias*
+Resultado = sumatoria días de permanencia en los destinos
+
+-
+*Atributo: tipologiaTurismo*
+ej. negocios, recreación, educativo, ecológico
+
+-
+*Atributo: tarifaDia*
+mayor que cero
+
+-
+*Atributo: cantidadUnidades*
+mínimo 1, se refiere a la cantidad de reservas del paquete
+
+-
+*Método: calcularValorUnidad*
+Depende de la categoría del paquete: destino único 
+destino múltiple.
+
+-
+*Método: calcularValorTotal*
+Resultado = producto del valor unidad y la cantidad
+                    de unidades.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2055</x>
+      <y>675</y>
+      <w>420</w>
+      <h>555</h>
+    </coordinates>
+    <panel_attributes>*Clase: Cliente*
+-
+*Atributo: tipoIdentificacion*
+Dominio : {C, N}
+     C: cédula
+     N: Nit
+
+-
+*Atributo: numeroIdentificacion*
+Si tipo es cédula, mínimo 6 digitos
+Si tipo es nit, 9 dígitos
+
+-
+*Atributo: nombre*
+Si es una persona, nombre completo
+Si es una empresa, razón social
+
+-
+*Atributo: telefono*
+número de teléfono para contacto: 
+- Si es una persona, teléfono móvil o fijo
+- Si es una empresa, teléfono fijo
+
+-
+*Atributo: nombreContacto*
+Nombre persona contacto:
+- Si el cliente es una persona natural, 
+  puede ser el mismo nombre del cliente
+
+-
+*Atributo: porcentajeDescuento*
+Mínimo: 0.0. Máximo: 70.0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2505</x>
+      <y>660</y>
+      <w>405</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Package::Modelo
+*+ &lt;&lt;final&gt;&gt; PaqueteTuristicoUnico*
+--
+- nombreHotel : String
+- tipoDesayuno : String {opcional}
+
+--
++ PaqueteTuristicoUnico (&lt;&lt;parámetros&gt;&gt;, &lt;&lt;super&gt;&gt;)
++ PaqueteTuristicoUnico (nombreHotel, &lt;&lt;super&gt;&gt;)
+*+ &lt;&lt;Getter&gt;&gt;*
+*+ &lt;&lt;Setter&gt;&gt;*
+*+ &lt;&lt;toString&gt;&gt;*
+*+ calcularValorUnidad() : int*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2955</x>
+      <y>660</y>
+      <w>375</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Java Class&gt;&gt;
+Package::Modelo
+*+ &lt;&lt;final&gt;&gt; PaqueteTuristicoMultiple*
+--
+- obsequio : String 
+
+--
++ PaqueteTuristicoMultiple (&lt;&lt;parámetros&gt;&gt;, &lt;&lt;super&gt;&gt;)
+*+ &lt;&lt;toString&gt;&gt;*
+*+ calcularValorUnidad() : int*
++ obtenerDestinoInicial() : Destino
++ obtenerDestinoFinal() : Destino
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2625</x>
+      <y>540</y>
+      <w>135</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2970</x>
+      <y>540</y>
+      <w>240</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>3240</x>
+      <y>375</y>
+      <w>375</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>*Clase: Destino*
+-
+*Atributo: diasPermanencia*
+mínimo 1
+
+-
+*Atributo: atractivosIncluidos*
+Si los atractivos están incluidos o son opcionales.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2505</x>
+      <y>1140</y>
+      <w>555</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>*Clase: PaqueteTuristicoMultiple*
+-
+*Nota.*
+No se incluyeron  &lt;&lt;Getter&gt;&gt; y &lt;&lt;Setter&gt;&gt; porque no tiene atributos propios.
+
+-
+*Método: calcularValorUnidad*
+Resultado = la tarifa base día por la duración total en días más un incremento
+(producto del 1% de la tarifa base día y la cantidad de destinos)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2505</x>
+      <y>945</y>
+      <w>525</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>*Clase: PaqueteTuristicoUnico*
+-
+*Atributo: tipoDesayuno*
+ej. Buffet, Americano
+opcional, depende de si la alimentación está incluida o no en el paquete
+
+-
+*Método: calcularValorUnidad*
+Resultado = la tarifa día por la duración total en días</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>615</y>
+      <w>765</w>
+      <h>1830</h>
+    </coordinates>
+    <panel_attributes>*Clase: UsaVenta*
+*Gestión de las ventas*
+-
+*Método: crearNuevaVenta*
+a- Generar el número de la venta automáticamente
+b- Solicitar los otros datos
+c- Crear la venta
+d- Agregar la venta a la colección de ventas
+
+-
+*Método: consultarTodasVentas*
+Mostrar en pantalla para cada venta almacenada en la colección: 
+- número, fecha y hora de generación, fecha y hora de la última actualización, estado, datos del cliente,
+- la cantidad de paquetes incluidos, 
+- la cantidad total de unidades de paquetes, 
+- el valor total de los paquetes, 
+- el valor de descuento,
+- el valor total a pagar y
+- los datos de cada uno de los paquetes: 
+      - la categoría del paquete, 
+      - datos generales y específicos,
+      - si es un paquete múltiple: el nombre de su destino inicial y final 
+      - el valor por unidad y
+      - el valor total
+
+-
+*Método: consultarVentaDadoNumero*
+Mostrar en pantalla para una venta específica (número indicado) almacenada en la colección: 
+- número, fecha y hora de generación, fecha y hora de la última actualización, estado, datos del cliente,
+- la cantidad de paquetes incluidos, 
+- la cantidad total de unidades de paquetes, 
+- el valor total de los paquetes, 
+- el valor de descuento,
+- el valor total a pagar y
+- los datos de cada uno de los paquetes: 
+      - la categoría del paquete, 
+      - datos generales y específicos,
+      - si es un paquete múltiple: el nombre de su destino inicial y final 
+      - el valor por unidad y
+      - el valor total
+      
+-
+*Método: consultarVentaDadaPosicion*
+Parámetro "posicionVenta" =&gt; P: primera, U: última
+
+Mostrar en pantalla para una venta específica -- primera o última -- almacenada en la colección: 
+- número, fecha y hora de generación, fecha y hora de la última actualización, estado, datos del cliente,
+- la cantidad de paquetes incluidos, 
+- la cantidad total de unidades de paquetes, 
+- el valor total de los paquetes, 
+- el valor de descuento,
+- el valor total a pagar y
+- los datos de cada uno de los paquetes: 
+      - la categoría del paquete, 
+      - datos generales y específicos,
+      - si es un paquete múltiple: el nombre de su destino inicial y final 
+      - el valor por unidad y
+      - el valor total
+
+-
+*Método: consultarVentasDadoEstado*
+Parámetro "estadoVenta" =&gt; A: activa, C: cancelada/anula, P: pago asociado
+
+Mostrar en pantalla para cada venta específica -- activa, candelada/anulada, pago asociada --
+almacenada en la colección: 
+- número, fecha y hora de generación, fecha y hora de la última actualización, estado, datos del cliente,
+- la cantidad de paquetes incluidos, 
+- la cantidad total de unidades de paquetes, 
+- el valor total de los paquetes, 
+- el valor de descuento,
+- el valor total a pagar y
+- los datos de cada uno de los paquetes (si la venta es Activa o Pagada): 
+      - la categoría del paquete, 
+      - datos generales y específicos,
+      - si es un paquete múltiple: el nombre de su destino inicial y final 
+      - el valor por unidad y
+      - el valor total
+
+-
+*Método: consultarVentasDadaCategoriaPaquete*
+Parámetro "categoriaPaquete" =&gt; Único, Múltiple
+
+Mostrar en pantalla para cada venta en la categoría de paquete específicado 
+almacenada en la colección: 
+- número, fecha y hora de generación, fecha y hora de la última actualización, estado, datos del cliente,
+- la cantidad de paquetes incluidos, 
+- la cantidad total de unidades de paquetes, 
+- el valor total de los paquetes, 
+- el valor de descuento,
+- el valor total a pagar y
+- los datos de cada uno de los paquetes: 
+      - datos generales y específicos,
+      - el nombre de su destino inicial y final (si múltiple)
+      - el valor por unidad y
+      - el valor total
+           
+-
+*Método: actualizarVenta*
+Parámetro "operacion" =&gt; C: Cancelar, P: Pagar
+
+1- Actualizar el estado de la venta, asignando: C si la operación es "Cancelar" o P si la operación es "Pagar"; 
+2- Modificar la fecha y hora de la última actualización de la venta tomando esta información desde el sistema
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>795</x>
+      <y>615</y>
+      <w>630</w>
+      <h>405</h>
+    </coordinates>
+    <panel_attributes>*Clase: UsaVenta*
+*Gestión de archivos de objetos*
+--
+*Método: generarArchivoObjetoDeVentas*
+- A partir de la colección de ventas, generar un archivo de objetos.
+
+-
+*Método: recuperarVentasDesdeArchivoObjetos*
+1- Limpiar la colección de ventas
+2- Actualizar la colección de ventas a partir del archivo de objetos respectivo
+
+-
+*Método: generarArchivoObjetosDeClientes*
+1- A partir de la colección de ventas, genere una colección de clientes.
+   Consideración: no se deben repetir los clientes. 
+2- A partir de la colección de clientes, genere un archivo de objetos.
+
+-
+*Método: recuperarClientesDesdeArchivoObjetos*
+1- Limpiar la colección de clientes
+2- Actualizar la colección de clientes a partir del archivo de objetos respectivo
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>795</x>
+      <y>1035</y>
+      <w>450</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>*Clase: UsaVenta*
+*Método: main*
+-
+El aplicativo debe proporcionar las siguientes funcionalides
+a través de un menú de opciones:
+1. Crear una nueva venta
+2. Consultar todas las ventas
+3. Consultar una venta por número
+4. Consultar una venta por posición
+5. Consultar ventas por estado
+6. Generar un archivo de objetos de ventas
+7. Consultar ventas desde archivo de objetos
+8. Actualizar una venta por número
+9. Generar un archivo de objetos de clientes
+10. Consultar clientes desde archivo de objetos
+11. Salir
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
